@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    /* overflow: hidden; /* Ya no es estrictamente necesario sin brillos que salgan */
+    background-color: #0a0a0a; /* Fondo casi negro */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Altura mínima de la ventana */
+    font-family: sans-serif; /* Fuente simple para el texto */
+    color: #fff; /* Color de texto blanco */
+    text-align: center; /* Centra el texto */
+    flex-direction: column; /* Apila elementos verticalmente */
+}
+
+.container {
+    position: relative; /* Lo mantenemos por si acaso, pero menos crítico */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el corazón y el texto entre sí */
+    margin-bottom: 30px; /* Espacio entre el corazón y el texto */
+}
+
+/* Estilo del corazón 2D (ajustado para simetría estándar) */
+.heart {
+    position: relative;
+    width: 100px;  /* Ancho base */
+    height: 100px; /* Alto base (igual al ancho para empezar con un cuadrado) */
+    background-color: red; /* Color del corazón */
+    transform: rotate(-45deg); /* Rotar el cuadrado */
+    cursor: pointer; /* Muestra una mano al pasar por encima */
+    margin-bottom: 50px; /* Espacio para que el texto quede debajo */
+    /* Aseguramos que no tenga los bordes redondeados aquí */
+    border-radius: 0;
+}
+
+/* Crea la parte superior izquierda del corazón (un círculo) */
+.heart:before {
+    content: '';
+    position: absolute;
+    top: -50px; /* La mitad del tamaño hacia arriba */
+    left: 0;
+    width: 100px; /* Igual al ancho del corazón base */
+    height: 100px; /* Igual al alto del corazón base */
+    background-color: red;
+    border-radius: 50%; /* Lo hace un círculo */
+}
+
+/* Crea la parte superior derecha del corazón (otro círculo) */
+.heart:after {
+    content: '';
+    position: absolute;
+    top: 0; /* Al mismo nivel que el borde superior del corazón base */
+    left: 50px; /* La mitad del tamaño hacia la derecha */
+    width: 100px; /* Igual al ancho del corazón base */
+    height: 100px; /* Igual al alto del corazón base */
+    background-color: red;
+    border-radius: 50%; /* Lo hace un círculo */
+}
+
+
+/* Estilo del texto del mensaje */
+.message {
+    font-size: 1.2em;
+    color: #ffcccc; /* Color suave original para el texto */
+    margin-top: 20px; /* Espacio sobre el texto */
+    /* Añadimos una transición suave para el cambio de color */
+    transition: color 0.3s ease-in-out;
+    /* La propiedad text-transform: uppercase; ya la controlamos en el HTML */
+}
